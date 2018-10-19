@@ -29,7 +29,8 @@ os.ui.search.searchBoxDirective = function() {
       'searchOnClear': '@',
       'showDropdownText': '@',
       'searchManager': '=?',
-      'showClear': '@?'
+      'showClear': '@?',
+      'routeDisplay': '@?'
     },
     templateUrl: os.ROOT + 'views/search/searchbox.html',
     controller: os.ui.search.SearchBoxCtrl,
@@ -114,6 +115,11 @@ os.ui.search.SearchBoxCtrl = function($scope, $element) {
    */
   this['recentSearches'] = /** @type {!Array<!osx.search.RecentSearch>} */ (os.settings.get(
       os.search.SearchSetting.RECENT, []));
+
+  /**
+   * @type {boolean}
+   */
+  this['isFavorite'] = false;
 
   /**
    * @type {!jQuery}
@@ -881,6 +887,8 @@ os.ui.search.SearchBoxCtrl.prototype.updateRecents = function() {
 
     this.saveRecent_();
   }
+
+  this.setIsFavorite_();
 };
 
 
@@ -923,7 +931,7 @@ os.ui.search.SearchBoxCtrl.prototype.favoriteSearch = function(favorite) {
  */
 os.ui.search.SearchBoxCtrl.prototype.onFavoritesUpdate_ = function() {
   // Read in favorites
-  this['favorites'] = os.searchManager.getFavorites(5);
+  this['favorites'] = os.searchManager.getFavorites(25);
   os.ui.apply(this.scope);
 };
 
@@ -938,4 +946,39 @@ os.ui.search.SearchBoxCtrl.prototype.isFavoriteActive = function(favorite) {
   var current = location.href.split('#');
   var fav = favorite['uri'].split('#');
   return current.length == 2 && fav.length == 2 && current[1] == fav[1];
+};
+
+
+/**
+ * Set if we have a favorite active
+ * @private
+ */
+os.ui.search.SearchBoxCtrl.prototype.setIsFavorite_ = function() {
+  // While we are at it, check if the current search is a favorite
+  var allSearchFavorites = os.searchManager.getFavorites();
+  this['isFavorite'] = !!goog.array.find(allSearchFavorites, function(fav) {
+    return this.isFavoriteActive(fav);
+  }, this);
+};
+
+
+/**
+ * Save the current URL as a favorite
+ * @export
+ */
+os.ui.search.SearchBoxCtrl.prototype.saveFavorite = function() {
+  os.favoriteManager.save(
+      os.user.settings.FavoriteType.SEARCH, location.href, this['searchTerm'] || 'New Favorite', true);
+  this['isFavorite'] = true;
+};
+
+/**
+ * @param {os.search.Favorite} favorite
+ * @export
+ */
+os.ui.search.SearchBoxCtrl.prototype.deleteFavorite = function(event, favorite) {
+  event.preventDefault();
+  event.stopPropagation();
+  os.favoriteManager.removeFavorite(favorite['uri']);
+  this.setIsFavorite_();
 };

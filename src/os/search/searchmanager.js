@@ -499,14 +499,14 @@ os.search.SearchManager.prototype.scoreCompare_ = function(a, b) {
 
 /**
  * Gets favorite searches
- * @param {number} max max number of reusltes to return.
+ * @param {number=} opt_max max number of reusltes to return.
  * @return {Array<os.search.Favorite>} array of favorite items
  */
-os.search.SearchManager.prototype.getFavorites = function(max) {
+os.search.SearchManager.prototype.getFavorites = function(opt_max) {
   var favorites = [];
   if (this.filterFavorites_) {
     favorites = this.filterFavorites_(os.favoriteManager.filter(os.favoriteManager.getFavorites(),
-        [os.user.settings.FavoriteType.SEARCH], max));
+        [os.user.settings.FavoriteType.SEARCH], opt_max));
   }
 
   return favorites;
