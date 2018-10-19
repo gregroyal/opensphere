@@ -973,6 +973,7 @@ os.ui.search.SearchBoxCtrl.prototype.saveFavorite = function() {
 };
 
 /**
+ * @param {Event} event
  * @param {os.search.Favorite} favorite
  * @export
  */
