@@ -22,7 +22,8 @@
     "scss": "scss/opensphere.scss",
     "themes": [
       "overrides_default_compact",
-      "overrides_slate_compact"
+      "overrides_slate_compact",
+      "overrides_slate_compact_cb_red_green"
     ],
     "gcc": {
       "language_in": "ECMASCRIPT_2015",
