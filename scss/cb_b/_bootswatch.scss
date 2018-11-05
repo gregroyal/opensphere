@@ -3,7 +3,7 @@
 .bg-danger,
 .btn-danger,
 .list-group-item-danger {
-  background: repeating-linear-gradient( 45deg, lighten($danger, 7.5%), lighten($danger, 7.5%) 10px, $danger 10px, $danger 20px );
+  background: repeating-linear-gradient(45deg, lighten($danger, 7.5%), lighten($danger, 7.5%) 10px, $danger 10px, $danger 20px);
   color: color-yiq($danger);
   font-weight: bold;
   text-shadow: 1px 1px color-yiq(color-yiq($danger));
