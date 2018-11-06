@@ -132,11 +132,21 @@
     "themes": {
       "Default": "overrides_slate_compact",
       "Light": "overrides_default_compact",
-      "Light - Red & Green (Protanomaly & Deuteranomaly)": "overrides_default_compact_cb_rg",
-      "Light - Blue (Tritanopia)": "overrides_default_compact_cb_b",
-      "Dark": "overrides_slate_compact",
-      "Dark - Protanomaly & Deuteranomaly": "overrides_slate_compact_cb_rg",
-      "Dark - Blue (Tritanopia)": "overrides_slate_compact_cb_b"
+      "Dark": "overrides_slate_compact"
+    },
+    "accessible_themes": {
+      "Default": {
+        "Red & Green (Protanomaly & Deuteranomaly)": "overrides_slate_compact_cb_rg",
+        "Blue (Tritanopia)": "overrides_slate_compact_cb_b"
+      },
+      "Light": {
+        "Red & Green (Protanomaly & Deuteranomaly)": "overrides_default_compact_cb_rg",
+        "Blue (Tritanopia)": "overrides_default_compact_cb_b"
+      },
+      "Dark": {
+        "Red & Green (Protanomaly & Deuteranomaly)": "overrides_slate_compact_cb_rg",
+        "Blue (Tritanopia)": "overrides_slate_compact_cb_b"
+      }
     }
   },
   "user": {
