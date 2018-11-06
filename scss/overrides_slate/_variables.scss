@@ -1,5 +1,5 @@
 // Needed for color pallet to have white text on buttons
-$yiq-contrasted-threshold: 166;
+$yiq-contrasted-threshold: 166 !default;
 
 $blue: #08c !default;
 $green: #62c462 !default;
@@ -19,13 +19,13 @@ $gray-900: #272b30 !default;
 $black: #000 !default;
 $white: #fff !default;
 
-$primary: $blue;
-$success: $green;
-$warning: $orange;
-$info: $indigo;
+$primary: $blue !default;
+$success: $green !default;
+$warning: $orange !default;
+$info: $indigo !default;
 
-$body-color: $gray-300;
-$dark: darken($gray-800, 5%);
+$body-color: $gray-300 !default;
+$dark: darken($gray-800, 5%) !default;
 
 $font-family-sans-serif: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
