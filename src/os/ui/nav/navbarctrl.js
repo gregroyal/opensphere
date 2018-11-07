@@ -77,3 +77,22 @@ os.ui.NavBarCtrl.prototype.getNavContentSize = function() {
 os.ui.NavBarCtrl.prototype.onResize_ = function() {
   os.dispatcher.dispatchEvent(new goog.events.Event(os.ui.nav.EventType.RESIZE));
 };
+
+
+/**
+ * @export
+ */
+os.ui.NavBarCtrl.prototype.test = function() {
+  os.alertManager.sendAlert('the system is down', os.alert.AlertEventSeverity.ERROR);
+
+  os.ui.injector.get('$timeout')(function() {
+    os.alertManager.sendAlert('theres something wrong, but might be ok', os.alert.AlertEventSeverity.WARNING);
+  }, 1000);
+  os.ui.injector.get('$timeout')(function() {
+    os.alertManager.sendAlert('everything is ok dont worry', os.alert.AlertEventSeverity.SUCCESS);
+  }, 2000);
+
+  os.ui.injector.get('$timeout')(function() {
+    os.alertManager.sendAlert('this hackathon is a winner', os.alert.AlertEventSeverity.INFO);
+  }, 3000);
+};
