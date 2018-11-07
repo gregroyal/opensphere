@@ -5,18 +5,19 @@
   .btn-#{$color},
   .list-group-item-#{$color} {
     color: color-yiq($value);
-    // font-weight: bold;
-    // text-shadow: 1px 1px color-yiq(color-yiq($value));
   }
 }
 
-.alert-info,
-.badge-info,
-.bg-info,
-.btn-info,
-.list-group-item-info {
-  color: $yiq-text-dark;
-  text-shadow: none;
+// The gradients are nice for buttons but bad for alerts
+@each $color, $value in $theme-colors {
+  .alert-#{$color} {
+    background-color: $value;
+    background-image: none;
+  }
+
+  .btn-#{$color} {
+    border-color: $dark;
+  }
 }
 
 .alert-danger,
@@ -24,7 +25,5 @@
 .bg-danger,
 .btn-danger,
 .list-group-item-danger {
-  // background: repeating-linear-gradient(45deg, lighten($danger, 7.5%), lighten($danger, 7.5%) 10px, $danger 10px, $danger 20px);
-  outline: 1px solid white;
-  outline-offset: -1px;
+  background: repeating-linear-gradient(45deg, lighten($danger, 2.5%), lighten($danger, 2.5%) 10px, $danger 10px, $danger 20px);
 }
