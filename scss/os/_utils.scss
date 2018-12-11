@@ -215,6 +215,44 @@
   }
 }
 
+.u-nav-tabs__vertical.nav-tabs {
+  border-bottom: 0;
+  border-right: 1px solid $nav-tabs-border-color;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 $nav-link-padding-x;
+
+  .nav-item + .nav-item {
+    margin-top: .25rem;
+  }
+
+  .nav-link {
+    background: transparent;
+    border-color: transparent;
+    color: $text-muted;
+    white-space: nowrap;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  .nav-item.show .nav-link {
+    border-bottom-color: inherit;
+    border-right-color: $body-bg;
+  }
+
+  .nav-link.active {
+    background: $body-bg;
+    border-bottom-left-radius: $nav-tabs-border-radius;
+    border-color: $nav-tabs-border-color;
+    border-right-color: $body-bg;
+    border-top-left-radius: $nav-tabs-border-radius;
+    border-top-right-radius: 0;
+    color: inherit;
+    margin-right: -1px;
+  }
+}
 
 // --------------------------------- Form Utilities --------------------------------- //
 .u-required:after {
