@@ -269,7 +269,7 @@ os.interaction.Measure.prototype.end = function(mapBrowserEvent) {
 
     os.interaction.Measure.nextId++;
     this.line2D.set('title', type + ' Measure ' + os.interaction.Measure.nextId);
-    this.line2D.set('icons', ' <i class="fa fa-arrows-h" title="Measure feature"></i> ');
+    this.line2D.set('icons', ' <i class="fas fa-fw fa-ruler-horizontal" title="Measure feature"></i> ');
     os.MapContainer.getInstance().addFeature(this.line2D);
 
     os.interaction.Measure.base(this, 'end', mapBrowserEvent);

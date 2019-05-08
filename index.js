@@ -148,10 +148,9 @@ const sharedResources = [
     scripts: ['crossfilter.min.js']
   },
   {
-    source: resolver.resolveModulePath('font-awesome', __dirname),
-    target: 'vendor/font-awesome',
-    css: ['css/font-awesome.min.css'],
-    files: ['fonts']
+    source: resolver.resolveModulePath('@fortawesome/fontawesome-free', __dirname),
+    target: 'vendor/fonts',
+    files: ['webfonts']
   },
   {
     source: resolver.resolveModulePath('moment/min', __dirname),

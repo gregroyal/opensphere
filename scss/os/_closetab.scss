@@ -33,7 +33,7 @@ $close-tab-font-size: .5rem !default;
   // Equivalent to "fa fa-chevron-right"
   &::before {
     @include font-awesome();
-    content: '\f054';
+    content: fa-content($fa-var-chevron-right);
   }
 }
 
@@ -46,6 +46,6 @@ $close-tab-font-size: .5rem !default;
   // Equivalent to "fa fa-chevron-left"
   &::before {
     @include font-awesome();
-    content: '\f053';
+    content: fa-content($fa-var-chevron-left);
   }
 }

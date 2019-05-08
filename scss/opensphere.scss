@@ -1,5 +1,14 @@
 @import 'os/themevariables';
 
+// Font Awesome
+$fa-font-path: '../../vendor/fonts/webfonts';
+@import 'fontawesome';
+@import 'solid';
+@import 'brands';
+@import 'regular';
+// Font Awesome shims required until migration off v4 syntax
+@import 'v4-shims';
+
 // Libraries
 @import 'os/overrides_bootstrap_variables';
 @import 'bootstrap';
