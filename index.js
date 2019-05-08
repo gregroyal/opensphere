@@ -353,10 +353,10 @@ const oldResources = [
     scripts: ['modernizr.js']
   },
   {
-    source: resolver.resolveModulePath('font-awesome', __dirname),
+    source: resolver.resolveModulePath('@fortawesome/fontawesome-free', __dirname),
     target: 'vendor/font-awesome',
-    css: ['css/font-awesome.min.css'],
-    files: ['fonts']
+    css: ['css/all.min.css', 'css/v4-shims.min.css'],
+    files: ['webfonts']
   }
 ];
 
