@@ -1,0 +1,6 @@
+// When using autovheight before the directive is rendered, we want it to have height
+// Usually this is for things like openlayers which need a height set on initialization
+
+[autovheight] {
+  height: 100vh;
+}
