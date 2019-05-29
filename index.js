@@ -143,6 +143,12 @@ const sharedResources = [
     scripts: ['simplemde.min.js']
   },
   {
+    source: resolver.resolveModulePath('tui-editor/dist', __dirname),
+    target: 'vendor/tui-editor',
+    css: ['tui-editor.min.css', 'tui-editor-contents.min.css'],
+    scripts: ['tui-editor-Editor-full.min.js', 'tui-editor-extColorSyntax.min.js']
+  },
+  {
     source: resolver.resolveModulePath('crossfilter2', __dirname),
     target: 'vendor/crossfilter',
     scripts: ['crossfilter.min.js']

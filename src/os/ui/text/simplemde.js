@@ -1,10 +1,10 @@
 goog.provide('os.ui.text.SimpleMDE');
 goog.provide('os.ui.text.SimpleMDECtrl');
 goog.provide('os.ui.text.simpleMDEDirective');
-
 goog.require('goog.dom.safe');
 goog.require('ol.xml');
 goog.require('os.ui.Module');
+goog.require('os.ui.text.tuiEditorDirective');
 
 
 /**

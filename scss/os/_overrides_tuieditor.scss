@@ -1,0 +1,169 @@
+.c-tui-editor {
+  .tui-editor-defaultUI {
+    border-color: $border-color;
+
+    .te-markdown-tab-section {
+      background: $input-bg;
+
+      .te-tab {
+        margin: inherit;
+      }
+    }
+
+    .te-toolbar-section {
+      background: $input-bg;
+      border-color: transparent;
+    }
+
+    .te-mode-switch-section {
+      background: $input-bg;
+      border-color: $border-color;
+      color: $input-color;
+    }
+
+    .te-tab button {
+      // This is hardcoded in the library for the toolbar height
+      height: 31px;
+    }
+
+
+    .te-tab button,
+    .te-switch-button {
+      background: $u-theme-variables--bg-offset;
+      border-color: transparent;
+      color: $text-muted;
+    }
+
+    .te-tab button:hover,
+    .te-tab .te-tab-active,
+    .te-switch-button.active {
+      background: $input-bg;
+      border-color: transparent;
+      color: $input-color;
+    }
+  }
+
+  .ng-dirty.ng-invalid {
+    .CodeMirror {
+      border-color: $danger;
+    }
+  }
+
+  .tui-editor {
+    .te-ww-container,
+    .te-preview,
+    .tui-editor-contents,
+    .CodeMirror {
+      background-color: $input-bg;
+      border-color: transparent;
+      border-radius: 0;
+      color: $input-color;
+    }
+
+    .tui-editor-contents {
+      // Each one has different colors
+      color: $input-color !important;
+    }
+  }
+
+  .tui-editor-defaultUI-toolbar {
+    background-color: $u-theme-variables--bg-offset;
+    color: color-yiq($u-theme-variables--bg-offset);
+
+    .tui-toolbar-icons {
+      background: $u-theme-variables--bg-offset;
+      border-color: transparent;
+      color: color-yiq($u-theme-variables--bg-offset);
+      display: flex;
+      justify-content: center;
+
+      &.active,
+      &:active,
+      &:hover {
+        background: $u-theme-variables--bg-offset;
+        border-color: $border-color;
+        color: color-yiq($u-theme-variables--bg-offset);
+      }
+
+      &::before {
+        @include font-awesome();
+
+        // font awesome standard size
+        font-size: 14px;
+      }
+
+      .tui-toolbar-divider {
+        border-color: $secondary;
+      }
+
+      &.tui-heading::before {
+        content: '\f1dc';
+      }
+
+      &.tui-bold::before {
+        content: '\f032';
+      }
+
+      &.tui-italic::before {
+        content: '\f033';
+      }
+
+      &.tui-strike::before {
+        content: '\f0cc';
+      }
+
+      &.tui-hrline::before {
+        content: '\f010';
+      }
+
+      &.tui-quote::before {
+        content: '\f10d';
+      }
+
+      &.tui-ul::before {
+        content: '\f0ca';
+      }
+
+      &.tui-ol::before {
+        content: '\f0cb';
+      }
+
+      &.tui-task::before {
+        content: '\f046';
+      }
+
+      &.tui-indent::before {
+        content: '\f03c';
+      }
+
+      &.tui-outdent::before {
+        content: '\f03b';
+      }
+
+      &.tui-table::before {
+        content: '\f0ce';
+      }
+
+      &.tui-image::before {
+        content: '\f03e';
+      }
+
+      &.tui-link::before {
+        content: '\f0c1';
+      }
+
+      &.tui-code::before {
+        content: '\f121';
+      }
+
+      &.tui-codeblock::before {
+        content: 'CB';
+        font-family: monospace;
+      }
+
+      &.tui-more::before {
+        content: '\f141';
+      }
+    }
+  }
+}
