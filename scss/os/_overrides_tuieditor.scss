@@ -21,10 +21,6 @@
       color: $input-color;
     }
 
-    .te-tab button {
-      // This is hardcoded in the library for the toolbar height
-      height: 31px;
-    }
 
 
     .te-tab button,
@@ -55,15 +51,96 @@
     .tui-editor-contents,
     .CodeMirror {
       background-color: $input-bg;
-      border-color: transparent;
+      border: 0;
       border-radius: 0;
       color: $input-color;
     }
 
+    .CodeMirror {
+      .cm-comment {
+        color: $warning;
+      }
+    }
+
     .tui-editor-contents {
       // Each one has different colors
-      color: $input-color !important;
+      border-color: darken($input-color, 8%);
+      color: $input-color;
+
+      h1,
+      h2,
+      h3,
+      h4
+      h5,
+      h6,
+      p,
+      ul {
+        color: $input-color;
+      }
+
+      pre,
+      table th {
+        background-color: $u-theme-variables--bg-offset;
+        border-color: darken($input-color, 8%);
+      }
+
+      code {
+        color: $danger;
+      }
+
+      blockquote {
+        color: $text-muted;
+      }
     }
+  }
+
+  .tui-popup-wrapper,
+  .tui-popup-body {
+    background-color: $u-theme-variables--bg-offset;
+    border-color: $border-color;
+    color: color-yiq($u-theme-variables--bg-offset);
+
+    label {
+      color: color-yiq($u-theme-variables--bg-offset);
+    }
+
+    .te-tab button:hover,
+    .te-tab .te-tab-active,
+    .te-switch-button.active {
+      background: $u-theme-variables--bg-offset;
+      border-color: $border-color;
+      color: color-yiq($u-theme-variables--bg-offset);
+    }
+  }
+
+  .tui-popup-title,
+  .tui-popup-header {
+    background: darken($modal-content-bg, 8%);
+    border-color: $border-color;
+    color: color-yiq(darken($modal-content-bg, 8%));
+  }
+
+  // sass-lint:disable extends-before-declarations, extends-before-mixins, no-extends, placeholder-in-extend
+  .te-link-text-input,
+  .te-url-input,
+  .te-image-url-input,
+  .te-alt-text-input {
+    @extend .form-control;
+  }
+
+  .te-ok-button {
+    @extend .btn;
+    @extend .btn-primary;
+  }
+
+  .te-close-button {
+    @extend .btn;
+    @extend .btn-secondary;
+  }
+
+  .tui-editor-defaultUI .te-tab button {
+    // This is hardcoded in the library for the toolbar height
+    height: 31px;
   }
 
   .tui-editor-defaultUI-toolbar {
@@ -113,7 +190,7 @@
       }
 
       &.tui-hrline::before {
-        content: '\f010';
+        content: '\f068';
       }
 
       &.tui-quote::before {
