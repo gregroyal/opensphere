@@ -153,8 +153,15 @@ os.ui.text.TuiEditorCtrl.prototype.getOptions = function() {
     'events': {
       'change': this.onChange_.bind(this)
     },
+    'previewStyle': 'vertical',
+    'codeBlockLanguages': ['markdown'],
+    'usedefaultHTMLSanitizer': false,
     'useCommandShortcut': false,
-    'usageStatistics': false
+    'usageStatistics': false,
+    'exts': [
+      'scrollSync',
+      'table'
+    ]
     // 'hooks': {
     //   'addImageBlobHook': function(file, callback) {
     //     function callback_for_image_upload(image_url){

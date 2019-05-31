@@ -241,6 +241,11 @@
       &.tui-more::before {
         content: '\f141';
       }
+
+      &.tui-color::before {
+        color: $danger;
+        content: '\f031';
+      }
     }
   }
 }
