@@ -31,3 +31,16 @@ tui.Editor.prototype.getMarkdown = function() {};
  * @param {string} markdown
  */
 tui.Editor.prototype.setMarkdown = function(markdown) {};
+
+
+/**
+ * @type {Object}
+ */
+tui.Editor.markdownitHighlight = {};
+
+
+/**
+ * @param {string} markdown
+ * @return {string}
+ */
+tui.Editor.markdownitHighlight.render = function(markdown) {};

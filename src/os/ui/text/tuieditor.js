@@ -7,11 +7,30 @@ goog.require('ol.xml');
 goog.require('os.ui.Module');
 
 
-// /**
-//  * Toolbar buttons
-//  * @type {Array}
-//  */
-// os.ui.text.TuiEditor.TOOLBAR = [];
+/**
+ * Toolbar buttons
+ * @type {Array}
+ */
+os.ui.text.TuiEditor.TOOLBAR = [
+  'heading',
+  'bold',
+  'italic',
+  'strike',
+  'divider',
+  'hr',
+  'quote',
+  'ul',
+  'ol',
+  'task',
+  'indent',
+  'outdent',
+  'divider',
+  'table',
+  'image',
+  'link',
+  'code'
+];
+
 
 /**
  * Toolbar buttons
@@ -25,8 +44,7 @@ os.ui.text.TuiEditor.BASICTOOLBAR = [
   'divider',
   'quote',
   'ul',
-  'ol',
-  'code'
+  'ol'
 ];
 
 
@@ -98,13 +116,7 @@ os.ui.text.TuiEditorCtrl = function($scope, $element, $timeout) {
    * @type {?Array <string | Object>}
    * @protected
    */
-  this.toolbar = null;
-  // this.toolbar = os.ui.text.TuiEditor.TOOLBAR;
-
-  // Leaving for backward compatibility
-  if (this.scope_['basictoolbar']) {
-    this.toolbar = os.ui.text.TuiEditor.BASICTOOLBAR;
-  }
+  this.toolbar = this.scope_['basictoolbar'] ? os.ui.text.TuiEditor.BASICTOOLBAR : os.ui.text.TuiEditor.TOOLBAR;
 
   $scope['text'] = $scope['text'] || '';
 
@@ -150,16 +162,16 @@ os.ui.text.TuiEditorCtrl.prototype.getOptions = function() {
     'el': this.element_.find('.js-tui-editor__editor')[0],
     'initialValue': this.scope_['text'],
     'initialEditType': os.settings.get('tuiedit.mode', 'wysiwyg'),
+    'toolbarItems': this.toolbar,
     'events': {
       'change': this.onChange_.bind(this)
     },
-    'previewStyle': 'vertical',
     'codeBlockLanguages': ['markdown'],
     'usedefaultHTMLSanitizer': false,
     'useCommandShortcut': false,
     'usageStatistics': false,
     'exts': [
-      'scrollSync',
+      'colorSyntax',
       'table'
     ]
     // 'hooks': {
@@ -173,9 +185,6 @@ os.ui.text.TuiEditorCtrl.prototype.getOptions = function() {
     // }
     // 'previewRender': this.cleanHtml  (previewBeforeHook?)
   };
-  if (this.toolbar) {
-    options['toolbarItems'] = this.toolbar;
-  }
 
   return options;
 };
@@ -209,4 +218,13 @@ os.ui.text.TuiEditorCtrl.prototype.onChange_ = function() {
 
   // Scope doesnt get applied automatically, so do it ourself
   os.ui.apply(this.scope_);
+};
+
+
+/**
+ * @param {string} markdown
+ * @return {string} - markdown parsed to html
+ */
+os.ui.text.TuiEditor.render = function(markdown) {
+  return tui.Editor.markdownitHighlight.render(markdown);
 };

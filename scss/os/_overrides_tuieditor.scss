@@ -82,8 +82,10 @@
       table th {
         background-color: $u-theme-variables--bg-offset;
         border-color: darken($input-color, 8%);
+        border-top: 1px solid darken($input-color, 8%);
       }
 
+      pre,
       code {
         color: $danger;
       }
@@ -104,10 +106,14 @@
       color: color-yiq($u-theme-variables--bg-offset);
     }
 
+    .te-tab {
+      border-color: $border-color;
+    }
+
     .te-tab button:hover,
     .te-tab .te-tab-active,
     .te-switch-button.active {
-      background: $u-theme-variables--bg-offset;
+      background: darken($modal-content-bg, 8%);
       border-color: $border-color;
       color: color-yiq($u-theme-variables--bg-offset);
     }
