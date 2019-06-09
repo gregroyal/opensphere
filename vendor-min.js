@@ -80,4 +80,4 @@ var vendorMinify = function(resources, output, opt_optimzationLevel) {
   shell.exec(resolver.resolveModulePath('opensphere-build-closure-helper') + '/os-compile.js ' + args);
 };
 
-vendorMinify(tuiEditorResources, buildPath + '/os-tuiEditor.min.js');
+vendorMinify(tuiEditorResources, 'vendor/os-minified/os-tui-editor.min.js');

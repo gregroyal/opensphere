@@ -123,9 +123,9 @@ os.ui.text.TuiEditorCtrl = function($scope, $element, $timeout) {
   $timeout(function() {
     if (this.scope_['edit'] && !window['tui']) {
       // Load up the javascript for the editor
-      var lib = os.ROOT + 'os-tui-editor.min.js';
-      libraries.push(goog.html.TrustedResourceUrl.fromConstant(os.string.createConstant(lib)));
-      goog.net.jsloader.safeLoad(trustedUrl).addCallbacks(this.processInternal, this.onScriptLoadError, this);
+      var lib = os.ROOT + 'vendor/os-minified/os-tui-editor.min.js';
+      var trustedUrl = goog.html.TrustedResourceUrl.fromConstant(os.string.createConstant(lib));
+      goog.net.jsloader.safeLoad(trustedUrl).addCallbacks(this.init, this.onScriptLoadError, this);
     } else {
       this.init();
     }
@@ -230,5 +230,5 @@ os.ui.text.TuiEditorCtrl.prototype.onChange_ = function() {
  * @return {string} - markdown parsed to html
  */
 os.ui.text.TuiEditor.render = function(markdown) {
-  return tui.Editor.markdownitHighlight.render(markdown);
+  return ''; //tui.Editor.markdownitHighlight.render(markdown);
 };

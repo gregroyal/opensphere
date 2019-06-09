@@ -152,6 +152,11 @@ const sharedResources = [
     ]
   },
   {
+    source: buildPath,
+    target: '',
+    files: ['os-tui-editor.min.js']
+  },
+  {
     source: resolver.resolveModulePath('crossfilter2', __dirname),
     target: 'vendor/crossfilter',
     scripts: ['crossfilter.min.js']
