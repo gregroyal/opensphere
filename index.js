@@ -137,45 +137,11 @@ const sharedResources = [
     files: ['images']
   },
   {
-    source: resolver.resolveModulePath('markdown-it/dist', __dirname),
-    target: 'vendor/tui-editor',
-    scripts: ['markdown-it.min.js']
-  },
-  {
-    source: resolver.resolveModulePath('to-mark/dist', __dirname),
-    target: 'vendor/tui-editor',
-    scripts: ['to-mark.min.js']
-  },
-  {
-    source: resolver.resolveModulePath('highlight.js/lib', __dirname),
-    target: 'vendor/tui-editor',
-    scripts: ['highlight.js']
-  },
-  {
-    source: resolver.resolveModulePath('squire-rte/build', __dirname),
-    target: 'vendor/tui-editor',
-    scripts: ['squire.js']
-  },
-  {
     source: resolver.resolveModulePath('codemirror/lib', __dirname),
     target: 'vendor/tui-editor',
     css: [
       'codemirror.css'
-    ],
-    scripts: ['codemirror.js']
-  },
-  {
-    source: resolver.resolveModulePath('tui-code-snippet/dist', __dirname),
-    target: 'vendor/tui-editor',
-    scripts: ['tui-code-snippet.min.js']
-  },
-  {
-    source: resolver.resolveModulePath('tui-color-picker/dist', __dirname),
-    target: 'vendor/tui-editor',
-    css: [
-      'tui-color-picker.min.css'
-    ],
-    scripts: ['tui-color-picker.min.js']
+    ]
   },
   {
     source: resolver.resolveModulePath('tui-editor/dist', __dirname),
@@ -183,13 +149,6 @@ const sharedResources = [
     css: [
       'tui-editor.min.css',
       'tui-editor-contents.min.css'
-    ],
-    scripts: [
-      'tui-editor-Viewer.min.js',
-      'tui-editor-Editor.min.js',
-      'tui-editor-extColorSyntax.min.js',
-      'tui-editor-extTable.min.js',
-      'tui-editor-extScrollSync.min.js'
     ]
   },
   {

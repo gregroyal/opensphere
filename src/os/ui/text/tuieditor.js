@@ -121,12 +121,18 @@ os.ui.text.TuiEditorCtrl = function($scope, $element, $timeout) {
   $scope['text'] = $scope['text'] || '';
 
   $timeout(function() {
-    this.init();
+    if (this.scope_['edit'] && !window['tui']) {
+      // Load up the javascript for the editor
+      var lib = os.ROOT + 'os-tui-editor.min.js';
+      libraries.push(goog.html.TrustedResourceUrl.fromConstant(os.string.createConstant(lib)));
+      goog.net.jsloader.safeLoad(trustedUrl).addCallbacks(this.processInternal, this.onScriptLoadError, this);
+    } else {
+      this.init();
+    }
   }.bind(this));
 
   $scope.$on('$destroy', this.onDestroy.bind(this));
 };
-
 
 
 /**
@@ -136,6 +142,15 @@ os.ui.text.TuiEditorCtrl.prototype.onDestroy = function() {
   this['tuiEditor'] = null;
   this.element_ = null;
   this.scope_ = null;
+};
+
+
+/**
+ * Since we couldnt load the js, just display the content
+ */
+os.ui.text.TuiEditorCtrl.prototype.onScriptLoadError = function() {
+  os.alertManager.sendAlert('Failed to load editor');
+  this.scope_['edit'] = false;
 };
 
 
@@ -171,19 +186,8 @@ os.ui.text.TuiEditorCtrl.prototype.getOptions = function() {
     'useCommandShortcut': false,
     'usageStatistics': false,
     'exts': [
-      'colorSyntax',
       'table'
     ]
-    // 'hooks': {
-    //   'addImageBlobHook': function(file, callback) {
-    //     function callback_for_image_upload(image_url){
-    //       let img_url = get_full_image_url(image_url);
-    //       callback(img_url, 'image');
-    //     }
-    //     self.upload_file_with_callback(file, callback_for_image_upload);
-    //   }
-    // }
-    // 'previewRender': this.cleanHtml  (previewBeforeHook?)
   };
 
   return options;
