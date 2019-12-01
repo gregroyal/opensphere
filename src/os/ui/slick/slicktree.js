@@ -120,11 +120,12 @@ os.ui.Module.directive('slicktree', [os.ui.slick.slickTreeDirective]);
  * @param {!angular.Scope} $scope
  * @param {!angular.JQLite} $element
  * @param {!angular.$compile} $compile
+ * @param {!angular.$timeout} $timeout
  * @extends {os.ui.slick.SlickGridCtrl}
  * @constructor
  * @ngInject
  */
-os.ui.slick.SlickTreeCtrl = function($scope, $element, $compile) {
+os.ui.slick.SlickTreeCtrl = function($scope, $element, $compile, $timeout) {
   // tree double click will expand/collapse nodes
   $scope['dblClickEnabled'] = true;
 
@@ -202,6 +203,13 @@ os.ui.slick.SlickTreeCtrl = function($scope, $element, $compile) {
    * @protected
    */
   this.moveMode = os.ui.slick.SlickTreeNode.MOVE_MODE.SIBLING;
+
+  // Slicktree appears to have an issue with the new resize logic
+  $timeout(function() {
+    if ($scope) {
+      $scope.$broadcast(os.ui.ResizeEventType.UPDATE_RESIZE);
+    }
+  });
 };
 goog.inherits(os.ui.slick.SlickTreeCtrl, os.ui.slick.SlickGridCtrl);
 
